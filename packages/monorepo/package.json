@@ -1,0 +1,36 @@
+{
+  "name": "@hackello/monorepo",
+  "version": "0.1.0",
+  "description": "A helper for monorepos.",
+  "author": "Hackello <team@hackello.com>",
+  "license": "MIT",
+  "files": ["lib", "config"],
+  "scripts": {
+    "clean": "rimraf lib",
+    "build": "babel src -d lib --ignore '**/__tests__'",
+    "lint": "standard --fix",
+    "test": "jest",
+    "posttest": "npm run lint -s",
+    "ci": "jest --coverage",
+    "postci": "standard"
+  },
+  "dependencies": {
+    "@hackello/fs": "^0.1.0",
+    "@hackello/log": "^0.1.0",
+    "@hackello/process": "^0.1.0"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "collectCoverageFrom": ["src/**/*.js"]
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {"targets": {"node": "6"}, "shippedProposals": true}
+      ]
+    ]
+  },
+  "standard": {"env": {"jest": true}}
+}

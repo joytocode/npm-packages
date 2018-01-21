@@ -1,0 +1,47 @@
+{
+  "name": "@hackello/npm-packages",
+  "version": "0.1.0",
+  "description": "A monorepo for npm packages of Hackello.",
+  "repository": "https://github.com/hackello/npm-packages",
+  "author": "Hackello <team@hackello.com>",
+  "license": "MIT",
+  "scripts": {
+    "build:fs": "cd packages/fs && npm run build",
+    "build:log": "cd packages/log && npm run build",
+    "build:process": "cd packages/process && npm run build",
+    "build:monorepo": "cd packages/monorepo && npm run build",
+    "link:fs": "path-exists packages/node_modules/@hackello/fs || lnk packages/fs packages/node_modules/@hackello",
+    "link:log": "path-exists packages/node_modules/@hackello/log || lnk packages/log packages/node_modules/@hackello",
+    "link:process": "path-exists packages/node_modules/@hackello/process || lnk packages/process packages/node_modules/@hackello",
+    "link:monorepo": "path-exists packages/node_modules/@hackello/monorepo || lnk packages/monorepo packages/node_modules/@hackello",
+    "prepare": "mkdirp packages/node_modules/@hackello && npm-run-all build:* link:*",
+    "start": "node packages/monorepo/lib/cli",
+    "test": "npm start test",
+    "precommit": "npm start ci",
+    "prepush": "npm start ci"
+  },
+  "dependencies": {
+    "cross-spawn": "^5.1.0",
+    "download": "^6.2.5",
+    "fs-extra": "^5.0.0",
+    "json-stringify-pretty-compact": "^1.1.0",
+    "lnk": "^1.1.0",
+    "path-exists": "^3.0.0",
+    "recursive-readdir": "^2.2.1",
+    "verror": "^1.10.0"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.38",
+    "@babel/core": "^7.0.0-beta.38",
+    "@babel/preset-env": "^7.0.0-beta.38",
+    "@babel/preset-stage-2": "^7.0.0-beta.38",
+    "babel-core": "^7.0.0-bridge.0",
+    "babel-jest": "^22.1.0",
+    "husky": "^0.14.3",
+    "jest": "^22.1.4",
+    "lnk-cli": "^1.0.1",
+    "npm-run-all": "^4.1.2",
+    "path-exists-cli": "^1.0.0",
+    "standard": "^10.0.3"
+  }
+}
