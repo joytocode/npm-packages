@@ -2,8 +2,10 @@
   "name": "@hackello/process",
   "version": "0.1.0",
   "description": "Process utilities.",
+  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/process",
   "author": "Hackello <team@hackello.com>",
   "license": "MIT",
+  "dependencies": {"cross-spawn": "^5.1.0"},
   "files": ["lib"],
   "scripts": {
     "clean": "rimraf lib",
@@ -14,7 +16,6 @@
     "ci": "jest --coverage",
     "postci": "standard"
   },
-  "dependencies": {"cross-spawn": "^5.1.0"},
   "jest": {
     "testEnvironment": "node",
     "clearMocks": true,

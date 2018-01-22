@@ -2,8 +2,10 @@
   "name": "@hackello/log",
   "version": "0.1.0",
   "description": "Logging utilities.",
+  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/log",
   "author": "Hackello <team@hackello.com>",
   "license": "MIT",
+  "dependencies": {"verror": "^1.10.0"},
   "files": ["lib"],
   "scripts": {
     "clean": "rimraf lib",
@@ -14,7 +16,6 @@
     "ci": "jest --coverage",
     "postci": "standard"
   },
-  "dependencies": {"verror": "^1.10.0"},
   "jest": {
     "testEnvironment": "node",
     "clearMocks": true,

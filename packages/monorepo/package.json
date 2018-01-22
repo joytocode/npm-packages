@@ -2,8 +2,14 @@
   "name": "@hackello/monorepo",
   "version": "0.1.0",
   "description": "A helper for monorepos.",
+  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/monorepo",
   "author": "Hackello <team@hackello.com>",
   "license": "MIT",
+  "dependencies": {
+    "@hackello/fs": "^0.1.0",
+    "@hackello/log": "^0.1.0",
+    "@hackello/process": "^0.1.0"
+  },
   "files": ["lib", "config"],
   "scripts": {
     "clean": "rimraf lib",
@@ -13,11 +19,6 @@
     "posttest": "npm run lint -s",
     "ci": "jest --coverage",
     "postci": "standard"
-  },
-  "dependencies": {
-    "@hackello/fs": "^0.1.0",
-    "@hackello/log": "^0.1.0",
-    "@hackello/process": "^0.1.0"
   },
   "jest": {
     "testEnvironment": "node",

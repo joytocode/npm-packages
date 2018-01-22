@@ -11,12 +11,19 @@ import config from './config'
 import loadPackages from './load-packages'
 import findDepedencies from './find-dependencies'
 
-const { packageContainer, author, license, gitignoreio } = config
+const { packageContainer, gitPath, info: { repository, author, license }, gitignoreio } = config
 
 export default async function boot () {
   const packages = await loadPackages()
   const allDepVersions = await getAllDepVersions(packages)
   await download(`https://www.gitignore.io/api/${gitignoreio.join(',')}`, path.resolve(), { filename: '.gitignore' })
+  const rootInfo = await readJson(path.resolve('package.json'))
+  await writeJson(path.resolve('package.json'), {
+    ...rootInfo,
+    repository,
+    author,
+    license
+  })
   for (const repoPackage of packages) {
     await linkPackage(repoPackage)
     const dependencies = await getDepedencies(repoPackage, allDepVersions)
@@ -56,19 +63,17 @@ async function getDepedencies (repoPackage, allDepVersions) {
 }
 
 async function updateFiles (repoPackage, dependencies) {
-  const { npminclude, scripts, jest, babel, standard, gitignore } = repoPackage.config
-  const info = {
+  const { gitignore, info } = repoPackage.config
+  const repoUrl = `${repository}/${gitPath}/${packageContainer}/${repoPackage.name}`
+  const repoInfo = {
     ...repoPackage.info,
+    repository: repoUrl,
     author,
     license,
-    files: npminclude,
-    scripts,
     dependencies,
-    jest,
-    babel,
-    standard
+    ...info
   }
-  await writeJson(path.join(repoPackage.path, 'package.json'), info)
+  await writeJson(path.join(repoPackage.path, 'package.json'), repoInfo)
   await writeFile(path.join(repoPackage.path, '.gitignore'), gitignore.concat(['']).join('\n'))
   if (await exists(path.resolve('LICENSE'))) {
     await copy(path.resolve('LICENSE'), path.join(repoPackage.path, 'LICENSE'))

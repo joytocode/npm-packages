@@ -2,8 +2,17 @@
   "name": "@hackello/fs",
   "version": "0.1.0",
   "description": "File system utilities.",
+  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/fs",
   "author": "Hackello <team@hackello.com>",
   "license": "MIT",
+  "dependencies": {
+    "download": "^6.2.5",
+    "fs-extra": "^5.0.0",
+    "json-stringify-pretty-compact": "^1.1.0",
+    "lnk": "^1.1.0",
+    "path-exists": "^3.0.0",
+    "recursive-readdir": "^2.2.1"
+  },
   "files": ["lib"],
   "scripts": {
     "clean": "rimraf lib",
@@ -13,14 +22,6 @@
     "posttest": "npm run lint -s",
     "ci": "jest --coverage",
     "postci": "standard"
-  },
-  "dependencies": {
-    "download": "^6.2.5",
-    "fs-extra": "^5.0.0",
-    "json-stringify-pretty-compact": "^1.1.0",
-    "lnk": "^1.1.0",
-    "path-exists": "^3.0.0",
-    "recursive-readdir": "^2.2.1"
   },
   "jest": {
     "testEnvironment": "node",
