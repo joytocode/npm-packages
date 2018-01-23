@@ -1,5 +1,7 @@
 const commonPackage = require('./config/common')()
 
 module.exports = Object.assign({}, commonPackage, {
-  npminclude: commonPackage.npminclude.concat(['config'])
+  info: Object.assign({}, commonPackage.info, {
+    files: commonPackage.info.files.concat(['config'])
+  })
 })
