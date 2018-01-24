@@ -3,7 +3,7 @@ import copy from '../copy'
 import fs from 'fs'
 
 describe('copy', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'copy')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)

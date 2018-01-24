@@ -3,7 +3,7 @@ import listFiles from '../list-files'
 import fs from 'fs'
 
 describe('listFiles', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'listFiles')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)

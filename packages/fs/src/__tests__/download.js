@@ -3,7 +3,7 @@ import download from '../download'
 import fs from 'fs'
 
 describe('download', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'download')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)
