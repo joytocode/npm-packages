@@ -21,7 +21,7 @@
     "prepush": "npm start ci"
   },
   "dependencies": {
-    "cross-spawn": "^5.1.0",
+    "cross-spawn": "^6.0.3",
     "download": "^6.2.5",
     "fs-extra": "^5.0.0",
     "jimp": "^0.2.28",
