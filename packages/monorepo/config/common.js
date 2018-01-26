@@ -6,7 +6,6 @@ module.exports = function createPackage () {
       scripts: {
         clean: 'rimraf lib',
         build: 'babel src -d lib --ignore \'**/__tests__\'',
-        prepublishOnly: 'npm run clean && npm run build',
         lint: 'standard --fix',
         test: 'jest',
         posttest: 'npm run lint -s',
