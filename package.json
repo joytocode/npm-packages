@@ -17,7 +17,6 @@
     "prepare": "mkdirp packages/node_modules/@hackello && npm-run-all build:* link:*",
     "start": "node packages/monorepo/lib/cli",
     "test": "npm start test",
-    "precommit": "npm start ci",
     "prepush": "npm start ci"
   },
   "dependencies": {
