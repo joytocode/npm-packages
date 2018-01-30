@@ -14,7 +14,7 @@ if (require.main === module) {
   const passphrasePrompt = {
     name: 'passphrase',
     type: 'password',
-    message: 'Enter passphrase (empty for no passphrase): '
+    message: 'Enter passphrase (optional): '
   }
   inquirer.prompt([passphrasePrompt])
     .then((answers) => cli(process.argv.slice(2), answers))
