@@ -1,18 +1,11 @@
 {
-  "name": "@hackello/bin-to-png",
+  "name": "@hackello/buffer-encryptor",
   "version": "0.1.0",
-  "description": "Encode and decode any file to a PNG image.",
-  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/bin-to-png",
+  "description": "Encrypt and decrypt buffer.",
+  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/buffer-encryptor",
   "author": "Hackello <team@hackello.com>",
   "license": "MIT",
-  "dependencies": {
-    "@hackello/buffer-encryptor": "^0.1.0",
-    "@hackello/fs": "^0.1.1",
-    "@hackello/log": "^0.1.0",
-    "inquirer": "^5.0.1",
-    "jimp": "^0.2.28"
-  },
-  "bin": {"bin-to-png": "lib/cli.js"},
+  "dependencies": {},
   "files": ["lib"],
   "scripts": {
     "clean": "rimraf lib",

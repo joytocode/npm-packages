@@ -1,11 +1,13 @@
 import Jimp from 'jimp'
 import readFile from '@hackello/fs/lib/read-file'
 import writeFile from '@hackello/fs/lib/write-file'
+import * as bufferEncryptor from '@hackello/buffer-encryptor/lib'
 
 const metaLength = 4
 
-export async function encode (binPath, pngPath) {
-  const binBuffer = await readFile(binPath, null)
+export async function encode (binPath, pngPath, passphrase) {
+  const originalBinBuffer = await readFile(binPath, null)
+  const binBuffer = passphrase ? await bufferEncryptor.encrypt(originalBinBuffer, passphrase) : originalBinBuffer
   const dataLength = Math.ceil((binBuffer.length + metaLength) / 4) * 4
   const dataBuffer = Buffer.alloc(dataLength)
   const offset = [0]
@@ -32,7 +34,7 @@ export async function encode (binPath, pngPath) {
   })
 }
 
-export async function decode (pngPath, binPath) {
+export async function decode (pngPath, binPath, passphrase) {
   const image = await Jimp.read(pngPath)
   const width = image.bitmap.width
   const height = image.bitmap.height
@@ -48,5 +50,6 @@ export async function decode (pngPath, binPath) {
   const binLength = dataBuffer.readInt32BE(offset[0])
   offset[0] += 4
   const binBuffer = dataBuffer.slice(offset[0], offset[0] + binLength)
-  await writeFile(binPath, binBuffer)
+  const originalBinBuffer = passphrase ? await bufferEncryptor.decrypt(binBuffer, passphrase) : binBuffer
+  await writeFile(binPath, originalBinBuffer)
 }
