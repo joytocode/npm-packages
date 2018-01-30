@@ -2,6 +2,7 @@
   "name": "@hackello/buffer-encryptor",
   "version": "0.1.0",
   "description": "Encrypt and decrypt buffer.",
+  "main": "lib/index.js",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/buffer-encryptor",
   "author": "Hackello <team@hackello.com>",
   "license": "MIT",
