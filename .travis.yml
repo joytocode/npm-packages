@@ -10,6 +10,8 @@ before_install:
   - npm install -g greenkeeper-lockfile@1
 install:
   - npm install
+  - npm start build
+  - npm start boot
 before_script: greenkeeper-lockfile-update
 script:
   - npm start ci

@@ -1,18 +1,23 @@
 #!/usr/bin/env node
 
 import logError from '@hackello/log/lib/log-error'
+import inquirer from 'inquirer'
 import * as commands from '.'
 
-export default async function cli (argv) {
+export default async function cli (argv, answers) {
   const [commandName, inPath, outPath] = argv
-  await commands[commandName](inPath, outPath)
+  await commands[commandName](inPath, outPath, answers.passphrase)
 }
 
 /* istanbul ignore if */
 if (require.main === module) {
-  Promise.resolve()
-    .then(() => process.argv.slice(2))
-    .then(cli)
+  const passphrasePrompt = {
+    name: 'passphrase',
+    type: 'password',
+    message: 'Enter passphrase (optional): '
+  }
+  inquirer.prompt([passphrasePrompt])
+    .then((answers) => cli(process.argv.slice(2), answers))
     .then(process.exit)
     .catch(logError)
 }

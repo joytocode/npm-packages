@@ -3,6 +3,9 @@ environment:
 install:
   - ps: Install-Product node $env:nodejs_version
   - npm install
+  - npm start build
+  - npm start boot
 build: off
+skip_branch_with_pr: true
 test_script:
   - npm start ci
