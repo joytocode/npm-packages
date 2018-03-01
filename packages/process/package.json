@@ -1,6 +1,6 @@
 {
   "name": "@hackello/process",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Process utilities.",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/process",
   "author": "Hackello <team@hackello.com>",

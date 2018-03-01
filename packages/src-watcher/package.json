@@ -8,8 +8,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.0.0-beta.40",
-    "@hackello/fs": "^0.1.1",
-    "@hackello/log": "^0.1.0",
+    "@hackello/fs": "^0.1.2",
+    "@hackello/log": "^0.1.1",
     "chokidar": "^2.0.2",
     "commondir": "^1.0.1",
     "lodash.debounce": "^4.0.8",

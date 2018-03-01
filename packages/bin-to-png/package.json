@@ -1,6 +1,6 @@
 {
   "name": "@hackello/bin-to-png",
-  "version": "0.1.0",
+  "version": "0.1.2",
   "description": "Encode and decode any file to a PNG image.",
   "main": "lib/index.js",
   "bin": {"bin-to-png": "lib/cli.js"},
@@ -8,9 +8,9 @@
   "author": "Hackello <team@hackello.com>",
   "license": "MIT",
   "dependencies": {
-    "@hackello/buffer-encryptor": "^0.1.0",
-    "@hackello/fs": "^0.1.1",
-    "@hackello/log": "^0.1.0",
+    "@hackello/buffer-encryptor": "^0.1.1",
+    "@hackello/fs": "^0.1.2",
+    "@hackello/log": "^0.1.1",
     "inquirer": "^5.0.1",
     "jimp": "^0.2.28"
   },
