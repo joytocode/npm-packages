@@ -8,7 +8,7 @@ export default async function findDepedencies (dirPath) {
     const content = await readFile(file)
     const requireMatches = content.match(/(require\(|from )('|")([^('|")]+)('|")/g) || []
     requireMatches.forEach((match) => {
-      const packageMatches = /^([^.]+)/.exec((/(([^('|")]+))/.exec((/('|")([^('|")/]+)(('|")|(\/[^/]+))/.exec(match)[0])))[0])
+      const packageMatches = /(([^('|")]+))/.exec((/('|")([^('|")/]+)(('|")|(\/[^/]+))/.exec(match)[0]))
       if (packageMatches) {
         result.add(packageMatches[0])
       }
