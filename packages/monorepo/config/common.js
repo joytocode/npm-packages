@@ -1,13 +1,13 @@
 module.exports = function createPackage () {
   return {
-    gitignore: ['lib', 'tmp'],
+    gitignore: ['lib'],
     info: {
       files: ['lib'],
       scripts: {
         clean: 'rimraf lib',
         build: 'babel src -d lib --ignore \'**/__tests__\'',
         lint: 'standard --fix',
-        test: 'jest',
+        test: 'jest --passWithNoTests',
         posttest: 'npm run lint -s',
         ci: 'jest --coverage',
         postci: 'standard'
