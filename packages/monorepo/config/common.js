@@ -9,7 +9,7 @@ module.exports = function createPackage () {
         lint: 'standard --fix',
         test: 'jest --passWithNoTests',
         posttest: 'npm run lint -s',
-        ci: 'jest --coverage',
+        ci: 'jest --passWithNoTests --coverage',
         postci: 'standard'
       },
       jest: {
