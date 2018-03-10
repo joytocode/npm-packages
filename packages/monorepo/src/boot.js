@@ -15,7 +15,7 @@ const { packageContainer, gitPath, info: { repository, author, license }, gitign
 
 export default async function boot () {
   const packages = await loadPackages()
-  const allDepVersions = await getAllDepVersions(packages)
+  const rootDepVersions = await getRootDepVersions(packages)
   await download(`https://www.gitignore.io/api/${gitignoreio.join(',')}`, path.resolve(), { filename: '.gitignore' })
   const rootInfo = await readJson(path.resolve('package.json'))
   await writeJson(path.resolve('package.json'), {
@@ -26,18 +26,18 @@ export default async function boot () {
   })
   for (const repoPackage of packages) {
     await linkPackage(repoPackage)
-    const dependencies = await getDepedencies(repoPackage, allDepVersions)
+    const dependencies = await getDepedencies(repoPackage, rootDepVersions)
     await updateFiles(repoPackage, dependencies)
   }
 }
 
-async function getAllDepVersions (packages) {
+async function getRootDepVersions (packages) {
   const rootInfo = await readJson(path.resolve('package.json'))
-  const allDepVersions = { ...rootInfo.dependencies }
+  const rootDepVersions = { ...rootInfo.dependencies }
   for (const repoPackage of packages) {
-    allDepVersions[repoPackage.info.name] = `^${repoPackage.info.version}`
+    rootDepVersions[repoPackage.info.name] = `^${repoPackage.info.version}`
   }
-  return allDepVersions
+  return rootDepVersions
 }
 
 async function linkPackage (repoPackage) {
@@ -49,12 +49,19 @@ async function linkPackage (repoPackage) {
   return link(repoPackage.path, targetDirPath)
 }
 
-async function getDepedencies (repoPackage, allDepVersions) {
-  const deps = await findDepedencies(repoPackage.path)
+async function getDepedencies (repoPackage, rootDepVersions) {
+  const deps = await findDepedencies(repoPackage.path, repoPackage.config.depIgnores)
+  if (repoPackage.config.deps) {
+    for (const dep of repoPackage.config.deps) {
+      if (deps.indexOf(dep) === -1) {
+        deps.push(dep)
+      }
+    }
+  }
   deps.sort()
   return deps
     .reduce((depVersions, dep) => {
-      const version = allDepVersions[dep]
+      const version = rootDepVersions[dep]
       if (version) {
         depVersions[dep] = version
       }
