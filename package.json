@@ -28,7 +28,7 @@
     "babel-jest": "^22.1.0",
     "chokidar": "^2.0.2",
     "commondir": "^1.0.1",
-    "cross-spawn": "^6.0.3",
+    "cross-spawn": "^6.0.5",
     "download": "^6.2.5",
     "fs-extra": "^5.0.0",
     "inquirer": "^5.0.1",

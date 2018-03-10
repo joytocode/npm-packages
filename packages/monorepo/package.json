@@ -1,6 +1,6 @@
 {
   "name": "@hackello/monorepo",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "A helper for monorepos.",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/monorepo",
   "author": "Hackello <team@hackello.com>",
@@ -12,7 +12,7 @@
     "@babel/preset-stage-2": "^7.0.0-beta.40",
     "@hackello/fs": "^0.1.2",
     "@hackello/log": "^0.1.1",
-    "@hackello/process": "^0.1.2",
+    "@hackello/process": "^0.1.3",
     "babel-core": "^7.0.0-bridge.0",
     "babel-jest": "^22.1.0",
     "jest": "^22.1.4",

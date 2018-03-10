@@ -1,8 +1,0 @@
-require('@babel/cli')
-require('@babel/core')
-require('@babel/preset-env')
-require('@babel/preset-stage-2')
-require('babel-core')
-require('babel-jest')
-require('jest')
-require('standard')
