@@ -1,6 +1,6 @@
 {
   "name": "@hackello/fs",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "File system utilities.",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/fs",
   "author": "Hackello <team@hackello.com>",
