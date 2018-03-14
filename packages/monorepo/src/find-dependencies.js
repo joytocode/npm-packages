@@ -10,7 +10,11 @@ export default async function findDepedencies (dirPath, depIgnores = []) {
     requireMatches.forEach((match) => {
       const packageMatches = /(([^('|")]+))/.exec((/('|")([^('|")/]+)(('|")|(\/[^/]+))/.exec(match)[0]))
       if (packageMatches) {
-        result.add(packageMatches[0])
+        if (packageMatches[0].charAt(0) === '@') {
+          result.add(packageMatches[0])
+        } else {
+          result.add(/[^/]+/.exec(packageMatches[0])[0])
+        }
       }
     })
   }
