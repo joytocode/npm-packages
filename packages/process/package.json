@@ -1,6 +1,6 @@
 {
   "name": "@hackello/process",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "description": "Process utilities.",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/process",
   "author": "Hackello <team@hackello.com>",
@@ -14,7 +14,7 @@
     "test": "jest --passWithNoTests",
     "posttest": "npm run lint -s",
     "ci": "jest --passWithNoTests --coverage",
-    "postci": "standard"
+    "preci": "standard"
   },
   "jest": {
     "testEnvironment": "node",

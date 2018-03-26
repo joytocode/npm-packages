@@ -42,7 +42,7 @@ async function getRootDepVersions (packages) {
 
 async function linkPackage (repoPackage) {
   const targetDirPath = path.resolve(packageContainer, 'node_modules', repoPackage.scope)
-  if (repoPackage.info.private || (await exists(path.join(targetDirPath, repoPackage.name)))) {
+  if (await exists(path.join(targetDirPath, repoPackage.name))) {
     return Promise.resolve()
   }
   await ensureDir(targetDirPath)

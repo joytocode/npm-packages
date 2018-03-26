@@ -1,6 +1,6 @@
 {
   "name": "@hackello/buffer-encryptor",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Encrypt and decrypt buffer.",
   "main": "lib/index.js",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/buffer-encryptor",
@@ -15,7 +15,7 @@
     "test": "jest --passWithNoTests",
     "posttest": "npm run lint -s",
     "ci": "jest --passWithNoTests --coverage",
-    "postci": "standard"
+    "preci": "standard"
   },
   "jest": {
     "testEnvironment": "node",
