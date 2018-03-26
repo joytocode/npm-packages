@@ -7,9 +7,8 @@ import debounce from 'lodash.debounce'
 import chokidar from 'chokidar'
 import minimatch from 'minimatch'
 import { transformFileSync } from '@babel/core'
-import commondir from 'commondir'
 
-export default function watchSrc ({ name = 'src', srcPath, outPath, events = ['change', 'add'],
+export default function watchSrc ({ name = 'src', basePath, paths, events = ['change', 'add'],
   filePattern, modulePattern }) {
   const clearRequireCache = debounce(() => {
     Object.keys(require.cache)
@@ -21,28 +20,29 @@ export default function watchSrc ({ name = 'src', srcPath, outPath, events = ['c
       })
     console.log(`${name} reloaded`)
   }, 100)
-  const watcher = chokidar.watch(srcPath)
-  watcher.on('ready', () => {
-    watcher.on('all', async (event, filePath) => {
-      try {
-        if (events.indexOf(event) === -1) {
-          return
+  paths.forEach(({ srcPath, outPath }) => {
+    const watcher = chokidar.watch(srcPath)
+    watcher.on('ready', () => {
+      watcher.on('all', async (event, filePath) => {
+        try {
+          if (events.indexOf(event) === -1) {
+            return
+          }
+          if (filePattern && !matchPattern(filePath, filePattern)) {
+            return
+          }
+          if (outPath) {
+            const outputPath = path.join(outPath, path.relative(srcPath, filePath))
+            const { code: outputCode } = transformFileSync(filePath)
+            await ensureDir(path.dirname(outputPath))
+            await writeFile(outputPath, outputCode)
+            console.log(`${path.relative(basePath, filePath)} -> ${path.relative(basePath, outputPath)}`)
+          }
+          clearRequireCache()
+        } catch (err) {
+          logError(err)
         }
-        if (filePattern && !matchPattern(filePath, filePattern)) {
-          return
-        }
-        if (outPath) {
-          const outputPath = path.join(outPath, path.relative(srcPath, filePath))
-          const { code: outputCode } = transformFileSync(filePath)
-          await ensureDir(path.dirname(outputPath))
-          await writeFile(outputPath, outputCode)
-          const commonPath = commondir([srcPath, outPath])
-          console.log(`${path.relative(commonPath, filePath)} -> ${path.relative(commonPath, outputPath)}`)
-        }
-        clearRequireCache()
-      } catch (err) {
-        logError(err)
-      }
+      })
     })
   })
 }
