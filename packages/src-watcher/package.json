@@ -1,6 +1,6 @@
 {
   "name": "@hackello/src-watcher",
-  "version": "0.2.5",
+  "version": "0.2.6",
   "description": "Transform and clear require cache when code changes.",
   "main": "lib/index.js",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/src-watcher",
@@ -8,8 +8,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.0.0-beta.42",
-    "@hackello/fs": "^0.1.3",
-    "@hackello/log": "^0.1.2",
+    "@hackello/fs": "^0.1.4",
+    "@hackello/log": "^0.1.3",
     "chokidar": "^2.0.3",
     "lodash.debounce": "^4.0.8",
     "minimatch": "^3.0.4"

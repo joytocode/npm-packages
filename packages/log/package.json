@@ -1,6 +1,6 @@
 {
   "name": "@hackello/log",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "Logging utilities.",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/log",
   "author": "Hackello <team@hackello.com>",
