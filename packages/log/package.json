@@ -8,7 +8,7 @@
   "dependencies": {"verror": "^1.10.0"},
   "files": ["lib"],
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib dist coverage node_modules *.zip *.tgz",
     "build": "babel src -d lib --ignore '**/__tests__'",
     "lint": "standard --fix",
     "test": "jest --passWithNoTests",

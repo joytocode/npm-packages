@@ -2,7 +2,6 @@ import path from 'path'
 import ensureDir from '@hackello/fs/lib/ensure-dir'
 import writeFile from '@hackello/fs/lib/write-file'
 import logError from '@hackello/log/lib/log-error'
-import isArray from 'lodash.isarray'
 import debounce from 'lodash.debounce'
 import chokidar from 'chokidar'
 import minimatch from 'minimatch'
@@ -48,7 +47,7 @@ export default function watchSrc ({ name = 'src', basePath, paths, events = ['ch
 }
 
 function matchPattern (path, pattern) {
-  if (isArray(pattern)) {
+  if (Array.isArray(pattern)) {
     return pattern.every((subPattern) => matchPattern(path, subPattern))
   }
   return minimatch(path, pattern)
