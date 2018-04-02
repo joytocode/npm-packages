@@ -50,7 +50,7 @@ export default async function make (argv) {
 }
 
 async function makePackage (repoPackage) {
-  console.log(`Make package ${repoPackage.name}...`)
+  console.log(`Making package ${repoPackage.name}...`)
   const distPath = path.join(repoPackage.path, 'dist')
   await ensureDir(distPath)
   await runCommand('npm', ['install', '--production', '--no-package-lock'], { cwd: repoPackage.path })
