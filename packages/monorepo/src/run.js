@@ -1,4 +1,4 @@
-import runCommand from '@hackello/process/lib/run-command'
+import runCommand from '@joytocode/process/lib/run-command'
 import loadPackages from './load-packages'
 
 export default async function run (argv) {

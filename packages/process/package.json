@@ -1,9 +1,9 @@
 {
-  "name": "@hackello/process",
-  "version": "0.1.5",
+  "name": "@joytocode/process",
+  "version": "1.0.0",
   "description": "Process utilities.",
-  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/process",
-  "author": "Hackello <team@hackello.com>",
+  "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/process",
+  "author": "JoyToCode <team@joytocode.com>",
   "license": "MIT",
   "dependencies": {"cross-spawn": "^6.0.5"},
   "files": ["lib"],

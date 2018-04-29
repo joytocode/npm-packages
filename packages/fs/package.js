@@ -1,1 +1,1 @@
-module.exports = require('@hackello/monorepo/config/common')()
+module.exports = require('@joytocode/monorepo/config/common')()

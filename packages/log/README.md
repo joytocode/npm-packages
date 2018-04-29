@@ -1,2 +1,2 @@
-# @hackello/log
+# @joytocode/log
 Logging utilities.

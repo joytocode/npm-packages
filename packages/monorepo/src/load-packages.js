@@ -1,8 +1,8 @@
 import path from 'path'
-import readDir from '@hackello/fs/lib/read-dir'
-import isDirectory from '@hackello/fs/lib/is-directory'
-import exists from '@hackello/fs/lib/exists'
-import readJson from '@hackello/fs/lib/read-json'
+import readDir from '@joytocode/fs/lib/read-dir'
+import isDirectory from '@joytocode/fs/lib/is-directory'
+import exists from '@joytocode/fs/lib/exists'
+import readJson from '@joytocode/fs/lib/read-json'
 import config from './config'
 
 const { packageContainer } = config

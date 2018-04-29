@@ -1,6 +1,6 @@
 import path from 'path'
 import fs from 'fs'
-import readFile from '@hackello/fs/lib/read-file'
+import readFile from '@joytocode/fs/lib/read-file'
 import * as binToPng from '..'
 
 describe('binToPng', () => {

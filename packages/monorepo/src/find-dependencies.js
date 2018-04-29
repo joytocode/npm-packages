@@ -1,5 +1,5 @@
-import readFile from '@hackello/fs/lib/read-file'
-import listFiles from '@hackello/fs/lib/list-files'
+import readFile from '@joytocode/fs/lib/read-file'
+import listFiles from '@joytocode/fs/lib/list-files'
 
 export default async function findDepedencies (dirPath, depIgnores = []) {
   const files = await listFiles(dirPath, ['node_modules', 'coverage', 'package.js'].concat(depIgnores))

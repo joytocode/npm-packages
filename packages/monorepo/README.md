@@ -1,2 +1,2 @@
-# @hackello/monorepo
+# @joytocode/monorepo
 A helper for monorepos.

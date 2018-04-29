@@ -1,9 +1,9 @@
 {
-  "name": "@hackello/fs",
-  "version": "0.1.4",
+  "name": "@joytocode/fs",
+  "version": "1.0.0",
   "description": "File system utilities.",
-  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/fs",
-  "author": "Hackello <team@hackello.com>",
+  "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/fs",
+  "author": "JoyToCode <team@joytocode.com>",
   "license": "MIT",
   "dependencies": {
     "decompress": "^4.2.0",

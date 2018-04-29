@@ -16,11 +16,10 @@ describe('download', () => {
   })
 
   it('should download url into dstPath', async () => {
-    const url = 'https://httpbin.org/robots.txt'
+    const url = 'https://raw.githubusercontent.com/joytocode/npm-packages/dev/README.md'
     const dstPath = path.join(dirTestPath, 'dstPath')
     const options = { filename: 'filename' }
-    const content = 'User-agent: *\nDisallow: /deny\n'
     await download(url, dstPath, options)
-    expect(fs.readFileSync(path.join(dstPath, 'filename'), 'utf8')).toBe(content)
+    expect(fs.readFileSync(path.join(dstPath, 'filename'), 'utf8').indexOf('npm-packages')).not.toBe(-1)
   })
 })

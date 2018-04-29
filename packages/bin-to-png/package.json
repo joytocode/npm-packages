@@ -1,16 +1,16 @@
 {
-  "name": "@hackello/bin-to-png",
-  "version": "0.1.4",
+  "name": "@joytocode/bin-to-png",
+  "version": "1.0.0",
   "description": "Encode and decode any file to a PNG image.",
   "main": "lib/index.js",
   "bin": {"bin-to-png": "lib/cli.js"},
-  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/bin-to-png",
-  "author": "Hackello <team@hackello.com>",
+  "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/bin-to-png",
+  "author": "JoyToCode <team@joytocode.com>",
   "license": "MIT",
   "dependencies": {
-    "@hackello/buffer-encryptor": "^0.1.3",
-    "@hackello/fs": "^0.1.4",
-    "@hackello/log": "^0.1.3",
+    "@joytocode/buffer-encryptor": "^1.0.0",
+    "@joytocode/fs": "^1.0.0",
+    "@joytocode/log": "^1.0.0",
     "inquirer": "^5.2.0",
     "jimp": "^0.2.28"
   },
