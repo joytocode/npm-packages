@@ -1,46 +1,62 @@
 {
   "name": "@hackello/monorepo",
-  "version": "0.1.4",
+  "version": "0.1.7",
   "description": "A helper for monorepos.",
   "repository": "https://github.com/hackello/npm-packages/tree/master/packages/monorepo",
   "author": "Hackello <team@hackello.com>",
   "license": "MIT",
   "dependencies": {
-    "@babel/cli": "^7.0.0-beta.40",
-    "@babel/core": "^7.0.0-beta.40",
-    "@babel/preset-env": "^7.0.0-beta.40",
-    "@babel/preset-stage-2": "^7.0.0-beta.40",
-    "@hackello/fs": "^0.1.2",
-    "@hackello/log": "^0.1.1",
-    "@hackello/process": "^0.1.3",
+    "@babel/cli": "^7.0.0-beta.42",
+    "@babel/core": "^7.0.0-beta.42",
+    "@babel/preset-env": "^7.0.0-beta.42",
+    "@babel/preset-stage-2": "^7.0.0-beta.42",
+    "@hackello/fs": "^0.1.4",
+    "@hackello/log": "^0.1.3",
+    "@hackello/process": "^0.1.5",
     "babel-core": "^7.0.0-bridge.0",
-    "babel-jest": "^22.1.0",
-    "jest": "^22.1.4",
-    "standard": "^11.0.0"
+    "babel-jest": "^22.4.3",
+    "jest": "^22.4.3",
+    "standard": "^11.0.1"
   },
-  "bin": {"monorepo": "lib/cli.js"},
-  "files": ["lib", "config"],
+  "bin": {
+    "monorepo": "lib/cli.js"
+  },
+  "files": [
+    "lib",
+    "config"
+  ],
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib dist coverage node_modules *.zip *.tgz",
     "build": "babel src -d lib --ignore '**/__tests__'",
     "lint": "standard --fix",
     "test": "jest --passWithNoTests",
     "posttest": "npm run lint -s",
     "ci": "jest --passWithNoTests --coverage",
-    "postci": "standard"
+    "preci": "standard"
   },
   "jest": {
     "testEnvironment": "node",
     "clearMocks": true,
-    "collectCoverageFrom": ["src/**/*.js"]
+    "collectCoverageFrom": [
+      "src/**/*.js"
+    ]
   },
   "babel": {
     "presets": [
       [
         "@babel/preset-env",
-        {"targets": {"node": "6"}, "shippedProposals": true}
+        {
+          "targets": {
+            "node": "6"
+          },
+          "shippedProposals": true
+        }
       ]
     ]
   },
-  "standard": {"env": {"jest": true}}
+  "standard": {
+    "env": {
+      "jest": true
+    }
+  }
 }
