@@ -1,9 +1,9 @@
 {
-  "name": "@hackello/log",
-  "version": "0.1.3",
+  "name": "@joytocode/log",
+  "version": "1.0.0",
   "description": "Logging utilities.",
-  "repository": "https://github.com/hackello/npm-packages/tree/master/packages/log",
-  "author": "Hackello <team@hackello.com>",
+  "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/log",
+  "author": "JoyToCode <team@joytocode.com>",
   "license": "MIT",
   "dependencies": {"verror": "^1.10.0"},
   "files": ["lib"],

@@ -1,7 +1,7 @@
 import Jimp from 'jimp'
-import readFile from '@hackello/fs/lib/read-file'
-import writeFile from '@hackello/fs/lib/write-file'
-import * as bufferEncryptor from '@hackello/buffer-encryptor'
+import readFile from '@joytocode/fs/lib/read-file'
+import writeFile from '@joytocode/fs/lib/write-file'
+import * as bufferEncryptor from '@joytocode/buffer-encryptor'
 
 const metaLength = 4
 

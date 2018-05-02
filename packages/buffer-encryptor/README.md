@@ -1,2 +1,2 @@
-# @hackello/buffer-encryptor
+# @joytocode/buffer-encryptor
 Encrypt and decrypt buffer.
