@@ -1,0 +1,16 @@
+{
+  "groups": {
+    "default": {
+      "packages": [
+        "package.json",
+        "packages/bin-to-png/package.json",
+        "packages/buffer-encryptor/package.json",
+        "packages/fs/package.json",
+        "packages/log/package.json",
+        "packages/monorepo/package.json",
+        "packages/process/package.json",
+        "packages/src-watcher/package.json"
+      ]
+    }
+  }
+}
