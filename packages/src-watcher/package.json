@@ -1,14 +1,14 @@
 {
   "name": "@joytocode/src-watcher",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Transform and clear require cache when code changes.",
   "main": "lib/index.js",
   "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/src-watcher",
   "author": "JoyToCode <team@joytocode.com>",
   "license": "MIT",
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.42",
-    "@joytocode/fs": "^1.0.0",
+    "@babel/core": "^7.0.0-beta.46",
+    "@joytocode/fs": "^1.0.1",
     "@joytocode/log": "^1.0.0",
     "chokidar": "^2.0.3",
     "lodash.debounce": "^4.0.8",
