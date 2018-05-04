@@ -3,7 +3,7 @@ import readJson from '../read-json'
 import fs from 'fs'
 
 describe('readJson', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'readJson')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)

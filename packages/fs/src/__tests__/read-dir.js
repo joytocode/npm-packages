@@ -3,7 +3,7 @@ import readDir from '../read-dir'
 import fs from 'fs'
 
 describe('readDir', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'readDir')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)

@@ -3,7 +3,7 @@ import ensureDir from '../ensure-dir'
 import fs from 'fs'
 
 describe('ensureDir', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'ensureDir')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)

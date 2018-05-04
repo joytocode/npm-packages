@@ -1,20 +1,21 @@
 {
-  "name": "@hackello/log",
-  "version": "0.1.0",
+  "name": "@joytocode/log",
+  "version": "1.0.0",
   "description": "Logging utilities.",
-  "author": "Hackello <team@hackello.com>",
+  "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/log",
+  "author": "JoyToCode <team@joytocode.com>",
   "license": "MIT",
+  "dependencies": {"verror": "^1.10.0"},
   "files": ["lib"],
   "scripts": {
-    "clean": "rimraf lib",
+    "clean": "rimraf lib dist coverage node_modules *.zip *.tgz",
     "build": "babel src -d lib --ignore '**/__tests__'",
     "lint": "standard --fix",
-    "test": "jest",
+    "test": "jest --passWithNoTests",
     "posttest": "npm run lint -s",
-    "ci": "jest --coverage",
-    "postci": "standard"
+    "ci": "jest --passWithNoTests --coverage",
+    "preci": "standard"
   },
-  "dependencies": {"verror": "^1.10.0"},
   "jest": {
     "testEnvironment": "node",
     "clearMocks": true,

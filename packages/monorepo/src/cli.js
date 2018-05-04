@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 
-import logError from '@hackello/log/lib/log-error'
+import logError from '@joytocode/log/lib/log-error'
 import monorepo from '.'
 
 export default async function cli (argv) {

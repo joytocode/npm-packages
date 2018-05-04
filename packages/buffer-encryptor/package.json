@@ -1,0 +1,34 @@
+{
+  "name": "@joytocode/buffer-encryptor",
+  "version": "1.0.0",
+  "description": "Encrypt and decrypt buffer.",
+  "main": "lib/index.js",
+  "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/buffer-encryptor",
+  "author": "JoyToCode <team@joytocode.com>",
+  "license": "MIT",
+  "dependencies": {},
+  "files": ["lib"],
+  "scripts": {
+    "clean": "rimraf lib dist coverage node_modules *.zip *.tgz",
+    "build": "babel src -d lib --ignore '**/__tests__'",
+    "lint": "standard --fix",
+    "test": "jest --passWithNoTests",
+    "posttest": "npm run lint -s",
+    "ci": "jest --passWithNoTests --coverage",
+    "preci": "standard"
+  },
+  "jest": {
+    "testEnvironment": "node",
+    "clearMocks": true,
+    "collectCoverageFrom": ["src/**/*.js"]
+  },
+  "babel": {
+    "presets": [
+      [
+        "@babel/preset-env",
+        {"targets": {"node": "6"}, "shippedProposals": true}
+      ]
+    ]
+  },
+  "standard": {"env": {"jest": true}}
+}

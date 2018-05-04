@@ -1,26 +1,28 @@
 {
-  "name": "@hackello/fs",
-  "version": "0.1.0",
+  "name": "@joytocode/fs",
+  "version": "1.0.1",
   "description": "File system utilities.",
-  "author": "Hackello <team@hackello.com>",
+  "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/fs",
+  "author": "JoyToCode <team@joytocode.com>",
   "license": "MIT",
-  "files": ["lib"],
-  "scripts": {
-    "clean": "rimraf lib",
-    "build": "babel src -d lib --ignore '**/__tests__'",
-    "lint": "standard --fix",
-    "test": "jest",
-    "posttest": "npm run lint -s",
-    "ci": "jest --coverage",
-    "postci": "standard"
-  },
   "dependencies": {
-    "download": "^6.2.5",
-    "fs-extra": "^5.0.0",
-    "json-stringify-pretty-compact": "^1.1.0",
+    "decompress": "^4.2.0",
+    "download": "^7.0.0",
+    "fs-extra": "^6.0.0",
+    "json-stringify-pretty-compact": "^1.2.0",
     "lnk": "^1.1.0",
     "path-exists": "^3.0.0",
     "recursive-readdir": "^2.2.1"
+  },
+  "files": ["lib"],
+  "scripts": {
+    "clean": "rimraf lib dist coverage node_modules *.zip *.tgz",
+    "build": "babel src -d lib --ignore '**/__tests__'",
+    "lint": "standard --fix",
+    "test": "jest --passWithNoTests",
+    "posttest": "npm run lint -s",
+    "ci": "jest --passWithNoTests --coverage",
+    "preci": "standard"
   },
   "jest": {
     "testEnvironment": "node",

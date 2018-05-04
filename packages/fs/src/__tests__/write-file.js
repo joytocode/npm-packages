@@ -3,7 +3,7 @@ import writeFile from '../write-file'
 import fs from 'fs'
 
 describe('writeFile', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'writeFile')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)

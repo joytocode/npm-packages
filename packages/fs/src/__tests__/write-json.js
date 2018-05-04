@@ -4,7 +4,7 @@ import fs from 'fs'
 import jsonStringify from 'json-stringify-pretty-compact'
 
 describe('writeJson', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'writeJson')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)

@@ -3,7 +3,7 @@ import link from '../link'
 import fs from 'fs'
 
 describe('link', () => {
-  const dirTestPath = path.join(__dirname, 'tmp')
+  const dirTestPath = path.join(__dirname, 'link')
 
   beforeEach((done) => {
     fs.mkdir(dirTestPath, done)
