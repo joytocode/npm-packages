@@ -1,15 +1,15 @@
 {
   "name": "@joytocode/fs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "File system utilities.",
   "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/fs",
   "author": "JoyToCode <team@joytocode.com>",
   "license": "MIT",
   "dependencies": {
     "decompress": "^4.2.0",
-    "download": "^6.2.5",
+    "download": "^7.0.0",
     "fs-extra": "^6.0.0",
-    "json-stringify-pretty-compact": "^1.1.0",
+    "json-stringify-pretty-compact": "^1.2.0",
     "lnk": "^1.1.0",
     "path-exists": "^3.0.0",
     "recursive-readdir": "^2.2.1"
