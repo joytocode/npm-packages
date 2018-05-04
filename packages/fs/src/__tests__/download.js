@@ -16,7 +16,7 @@ describe('download', () => {
   })
 
   it('should download url into dstPath', async () => {
-    const url = 'https://raw.githubusercontent.com/joytocode/npm-packages/dev/README.md'
+    const url = 'https://rawgit.com/joytocode/npm-packages/master/README.md'
     const dstPath = path.join(dirTestPath, 'dstPath')
     const options = { filename: 'filename' }
     await download(url, dstPath, options)
