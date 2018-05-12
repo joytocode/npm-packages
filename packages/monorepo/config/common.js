@@ -23,7 +23,7 @@ module.exports = function createPackage () {
         presets: [
           ['@babel/preset-env', {
             targets: {
-              node: '6'
+              node: '8'
             },
             shippedProposals: true
           }]

@@ -8,8 +8,8 @@
   "license": "MIT",
   "dependencies": {
     "@babel/core": "^7.0.0-beta.46",
-    "@joytocode/fs": "^1.0.1",
     "@joytocode/log": "^1.0.0",
+    "@joytocode/process": "^1.0.0",
     "chokidar": "^2.0.3",
     "lodash.debounce": "^4.0.8",
     "minimatch": "^3.0.4"
@@ -33,7 +33,7 @@
     "presets": [
       [
         "@babel/preset-env",
-        {"targets": {"node": "6"}, "shippedProposals": true}
+        {"targets": {"node": "8"}, "shippedProposals": true}
       ]
     ]
   },

@@ -1,11 +1,11 @@
 import path from 'path'
-import ensureDir from '@joytocode/fs/lib/ensure-dir'
-import writeFile from '@joytocode/fs/lib/write-file'
 import logError from '@joytocode/log/lib/log-error'
+import runCommand from '@joytocode/process/lib/run-command'
 import debounce from 'lodash.debounce'
 import chokidar from 'chokidar'
 import minimatch from 'minimatch'
-import { transformFileSync } from '@babel/core'
+
+const babelBinPath = require.resolve('@babel/cli/bin/babel')
 
 export default function watchSrc ({ name = 'src', basePath, paths, events = ['change', 'add'],
   filePattern, modulePattern }) {
@@ -19,7 +19,8 @@ export default function watchSrc ({ name = 'src', basePath, paths, events = ['ch
       })
     console.log(`${name} reloaded`)
   }, 100)
-  paths.forEach(({ srcPath, outPath }) => {
+  paths.forEach(({ base, src, out }) => {
+    const srcPath = path.join(base, src)
     const watcher = chokidar.watch(srcPath)
     watcher.on('ready', () => {
       watcher.on('all', async (event, filePath) => {
@@ -30,11 +31,9 @@ export default function watchSrc ({ name = 'src', basePath, paths, events = ['ch
           if (filePattern && !matchPattern(filePath, filePattern)) {
             return
           }
-          if (outPath) {
-            const outputPath = path.join(outPath, path.relative(srcPath, filePath))
-            const { code: outputCode } = transformFileSync(filePath)
-            await ensureDir(path.dirname(outputPath))
-            await writeFile(outputPath, outputCode)
+          if (out) {
+            const outputPath = path.join(base, out, path.relative(srcPath, filePath))
+            await runCommand(babelBinPath, [filePath, '-o', outputPath], { cwd: base })
             console.log(`${path.relative(basePath, filePath)} -> ${path.relative(basePath, outputPath)}`)
           }
           clearRequireCache()
