@@ -1,6 +1,6 @@
 {
   "name": "@joytocode/bin-to-png",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Encode and decode any file to a PNG image.",
   "main": "lib/index.js",
   "bin": {"bin-to-png": "lib/cli.js"},
@@ -9,7 +9,7 @@
   "license": "MIT",
   "dependencies": {
     "@joytocode/buffer-encryptor": "^1.0.0",
-    "@joytocode/fs": "^1.0.1",
+    "@joytocode/fs": "^1.0.2",
     "@joytocode/log": "^1.0.0",
     "inquirer": "^5.2.0",
     "jimp": "^0.2.28"
