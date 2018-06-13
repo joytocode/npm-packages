@@ -8,7 +8,7 @@ import minimatch from 'minimatch'
 const babelBinPath = require.resolve('@babel/cli/bin/babel')
 
 export default function watchSrc ({ name = 'src', basePath, paths, events = ['change', 'add'],
-  filePattern, modulePattern }) {
+  filePattern, modulePattern, handler }) {
   const clearRequireCache = debounce(() => {
     Object.keys(require.cache)
       .forEach((moduleKey) => {
@@ -17,6 +17,9 @@ export default function watchSrc ({ name = 'src', basePath, paths, events = ['ch
         }
         delete require.cache[moduleKey]
       })
+    if (handler) {
+      handler()
+    }
     console.log(`${name} reloaded`)
   }, 100)
   paths.forEach(({ base, src, out }) => {
