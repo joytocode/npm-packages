@@ -17,6 +17,9 @@ export default function watchSrc ({ name = 'src', basePath, paths, events = ['ch
         }
         delete require.cache[moduleKey]
       })
+    if (handler) {
+      handler()
+    }
     console.log(`${name} reloaded`)
   }, 100)
   paths.forEach(({ base, src, out }) => {
@@ -37,9 +40,6 @@ export default function watchSrc ({ name = 'src', basePath, paths, events = ['ch
             console.log(`${path.relative(basePath, filePath)} -> ${path.relative(basePath, outputPath)}`)
           }
           clearRequireCache()
-          if (handler) {
-            handler()
-          }
         } catch (err) {
           logError(err)
         }
