@@ -1,6 +1,6 @@
 {
   "name": "@joytocode/src-watcher",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Transform and clear require cache when code changes.",
   "main": "lib/index.js",
   "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/src-watcher",

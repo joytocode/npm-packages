@@ -8,7 +8,7 @@ import minimatch from 'minimatch'
 const babelBinPath = require.resolve('@babel/cli/bin/babel')
 
 export default function watchSrc ({ name = 'src', basePath, paths, events = ['change', 'add'],
-  filePattern, modulePattern }) {
+  filePattern, modulePattern, handler }) {
   const clearRequireCache = debounce(() => {
     Object.keys(require.cache)
       .forEach((moduleKey) => {
@@ -37,6 +37,9 @@ export default function watchSrc ({ name = 'src', basePath, paths, events = ['ch
             console.log(`${path.relative(basePath, filePath)} -> ${path.relative(basePath, outputPath)}`)
           }
           clearRequireCache()
+          if (handler) {
+            handler()
+          }
         } catch (err) {
           logError(err)
         }
