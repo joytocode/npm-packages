@@ -1,6 +1,6 @@
 {
   "name": "@joytocode/process",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Process utilities.",
   "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/process",
   "author": "JoyToCode <team@joytocode.com>",

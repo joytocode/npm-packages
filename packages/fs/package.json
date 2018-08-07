@@ -1,6 +1,6 @@
 {
   "name": "@joytocode/fs",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "File system utilities.",
   "repository": "https://github.com/joytocode/npm-packages/tree/master/packages/fs",
   "author": "JoyToCode <team@joytocode.com>",
