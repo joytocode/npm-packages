@@ -12,7 +12,7 @@
     "@joytocode/fs": "^1.0.2",
     "@joytocode/log": "^1.0.0",
     "inquirer": "^6.0.0",
-    "jimp": "^0.2.28"
+    "jimp": "^0.3.2"
   },
   "files": ["lib"],
   "scripts": {
