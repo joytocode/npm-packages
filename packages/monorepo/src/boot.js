@@ -3,6 +3,7 @@ import ensureDir from '@joytocode/fs/lib/ensure-dir'
 import exists from '@joytocode/fs/lib/exists'
 import link from '@joytocode/fs/lib/link'
 import readJson from '@joytocode/fs/lib/read-json'
+import readFile from '@joytocode/fs/lib/read-file'
 import writeJson from '@joytocode/fs/lib/write-json'
 import writeFile from '@joytocode/fs/lib/write-file'
 import copy from '@joytocode/fs/lib/copy'
@@ -17,6 +18,9 @@ export default async function boot () {
   const packages = await loadPackages()
   const rootDepVersions = await getRootDepVersions(packages)
   await download(`https://www.gitignore.io/api/${gitignoreio.join(',')}`, path.resolve(), { filename: '.gitignore' })
+  if (config.gitignore) {
+    await writeFile(path.resolve('.gitignore'), `${await readFile(path.resolve('.gitignore'))}\n${config.gitignore.join('\n')}\n`)
+  }
   const rootInfo = await readJson(path.resolve('package.json'))
   await writeJson(path.resolve('package.json'), {
     ...rootInfo,
