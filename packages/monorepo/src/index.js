@@ -1,8 +1,9 @@
 import run from './run'
 import boot from './boot'
 import make from './make'
+import syncConfig from './sync-config'
 
-const commands = { run, boot, make }
+const commands = { run, boot, make, syncConfig }
 
 export default function monorepo (argv) {
   const commandName = argv[0]
